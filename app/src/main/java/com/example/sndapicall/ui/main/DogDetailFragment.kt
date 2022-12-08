@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import coil.load
 import com.example.sndapicall.R
 import com.example.sndapicall.databinding.FragmentDogDetailBinding
 
@@ -22,7 +24,14 @@ class DogDetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val dogImage = requireArguments().getString("dogImageRes")
+        binding.dogDetailImage.load(dogImage)
+
+        binding.backBtn.setOnClickListener {
+            findNavController().navigateUp()
+        }
 
     }
+
 
 }

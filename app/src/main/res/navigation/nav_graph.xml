@@ -9,5 +9,17 @@
         android:id="@+id/mainFragment"
         android:name="com.example.sndapicall.ui.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_dogDetailFragment"
+            app:destination="@id/dogDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dogDetailFragment"
+        android:name="com.example.sndapicall.ui.main.DogDetailFragment"
+        android:label="DogDetailFragment" >
+        <argument
+            android:name="dogImageRes"
+            app:argType="string" />
+    </fragment>
 </navigation>
