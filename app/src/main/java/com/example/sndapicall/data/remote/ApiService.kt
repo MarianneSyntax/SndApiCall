@@ -26,9 +26,9 @@ interface ApiService {
     // wir wollen von der base_url aus die Antwort von folgender Adresse als Datentyp Response speichern:
     // wir tun im Kommentar so, als wollten wir konkret zur rasse beagle
     // und setzen in Z. 30 und 33 für {dogbreed} beagle in die Adresse:
-    @GET("/breed/{dogBreed}/images")
-    //https://dog.ceo/api/breed/beagle/images
-    suspend fun getBeagles(@Path("dogBreed") dogBreed: String): Response
+    @GET("breed/{dogBreed}/images")
+    // https://dog.ceo/api/breed/beagle/images
+    suspend fun getDoggies(@Path("dogBreed") dogBreed: String): Response
     // @Path im Gegensatz zu @Query: bei Query würde die Adresse automatisch so aussehen:
 // "/search?dogBreed=beagle"
 
