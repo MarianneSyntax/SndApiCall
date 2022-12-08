@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.sndapicall.R
+import com.example.sndapicall.ui.main.MainFragmentDirections
 
 class DogAdapter() : RecyclerView.Adapter<DogAdapter.ItemViewHolder>() {
     private var dataset = listOf<String>()
@@ -32,6 +34,10 @@ class DogAdapter() : RecyclerView.Adapter<DogAdapter.ItemViewHolder>() {
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item: String = dataset[position]
         holder.dogImage.load(item)
+
+        holder.dogImage.setOnClickListener {
+            holder.itemView.findNavController().navigate(MainFragmentDirections.actionMainFragmentToDogDetailFragment(item))
+        }
 
     }
 
